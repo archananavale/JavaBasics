@@ -151,6 +151,12 @@ public class JavaCollections {
 
         list.addAll(list2); //merging two list
         list.forEach(System.out::println);
+        list.forEach((k)->{
+            k=k*2-999999;
+            System.out.println("value of k "+ k);
+            list2.add(k);
+        });
+        System.out.println(list2);
 /*
     Set
     dosnt save duplicate value and you dint get it in order which is entered in
@@ -211,6 +217,17 @@ public class JavaCollections {
         }
         //Funtional Interface
         map.forEach((k,v) -> System.out.println(k+" :"+v));
+
+        map.forEach((k,v)->{
+            if(k.equals("A")) {
+                System.out.println(k + "value a found :" + v);
+                map.replace("tt", "table");
+            }
+        });// why value dosnt change
+        map.forEach((k,v)->{
+            System.out.println("Val of k "+k);
+            System.out.println("val of b "+v);
+        });
 
     }
 

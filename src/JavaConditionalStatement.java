@@ -17,6 +17,8 @@ public class JavaConditionalStatement {
         else
             System.out.println("Failed");
 
+        System.out.println("values "+(3/0));
 
+        System.out.println("hello");
     }
 }

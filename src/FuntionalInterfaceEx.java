@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 interface  InterfaceEx{
@@ -15,10 +16,14 @@ interface  InterfaceEx{
     }
 
 }
-@java.lang.FunctionalInterface
+@java.lang.FunctionalInterface   // good practice to mention @functionala interface. in team of developer to avaoid comnflicts
 interface FunctionalInterfaceEx1{
     void funEx(int a, int b);
-//    void  funex1(int a);
+
+//    void  funex1(int a);   // @functional interface cant have two abstract methode . but it can have solid methods\\\\
+   default void funPrint (int a){
+        System.out.println("At fucntional interface print : "+a);
+    }
 }
 public class FuntionalInterfaceEx {
 
@@ -51,6 +56,20 @@ public class FuntionalInterfaceEx {
 
         FunctionalInterfaceEx1 obj3=(num1,num2)-> System.out.println("Addion is "+ (num1+num2));
         obj3.funEx(3,4);
+        obj3.funPrint(2); // thsi is solid method
+        //OR another way to creat e object
+        FunctionalInterfaceEx1 obj2 =  new FunctionalInterfaceEx1() {
+            @Override
+            public void funEx(int a, int b) {
+                System.out.println("substraction is "+(a-b)); // as per requirement the body written
+            }
+
+            @Override
+            public void funPrint(int a) {
+
+            }
+        };
+        obj2.funEx(46646,3455677);
 
 
  //BIfuntional
